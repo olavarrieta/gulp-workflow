@@ -12,7 +12,7 @@
 		"type": "git",
 		"url": "http://link-to-your-git-repo.com"
 	},
-	"boilerplate": {
+	"workflow": {
 		"version": "1.0.0",
 		"author": "Alvin Olavarrieta",
 		"url": "https://allusoft.com",
