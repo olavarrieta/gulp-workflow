@@ -7,8 +7,7 @@ A workflow for building web projects with [Gulp](https://gulpjs.com/). Uses Gulp
 - Concatenate, minify, and lint JavaScript.
 - Compile, minify, autoprefix, and lint Sass.
 - Optimize SVGs.
-- Compress and optimize JPEP and PNG image files.
-- Compress and optimize images.
+- Compress and optimize JPEG and PNG image files.
 - Copy static files and folders into your `dist` directory.
 - Automatically add headers and project details to JS and CSS files.
 - Create polyfilled and non-polyfilled versions of JS files.
