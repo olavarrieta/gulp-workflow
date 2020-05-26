@@ -100,8 +100,10 @@ var svgmin = require('gulp-svgmin');
 var imagemin = require('gulp-imagemin');
 var mozjpeg = require('imagemin-mozjpeg')
 var pngquant = require('imagemin-pngquant');
+
 // webp
 var webp = require("imagemin-webp");
+var extReplace = require("gulp-ext-replace");
 
 // BrowserSync
 var browserSync = require('browser-sync');
@@ -268,7 +270,7 @@ var buildWebp = function (done) {
 		.pipe(imagemin([
 			webp({ quality: 75 })
 		]))
-		.pipe(rename, { extname: '.webp' })
+		.pipe(extReplace(".webp"))
 		.pipe(dest(paths.webp.output));
 };
 

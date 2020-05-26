@@ -104,7 +104,9 @@ Image files will be compressed and optimized with [imagemin-mozjpeg](https://www
 
 Place images files in the `src/webp` directory.
 
-Image files will be converted and optimized with [imagemin-webp](https://www.npmjs.com/package/imagemin-webp) and compiled into `dist/webp`.
+Image files will be converted and optimized using [imagemin-webp](https://www.npmjs.com/package/imagemin-webp) and compiled into `dist/webp`.
+
+Image file extensions will be renamed to `.webp` using [gulp-ext-replace](https://www.npmjs.com/package/gulp-ext-replace).
 
 ### Copy Files
 
