@@ -10,6 +10,7 @@ var settings = {
 	styles: true,
 	svgs: true,
 	images: true,
+	webp: true,
 	copy: true,
 	reload: true
 };
@@ -38,6 +39,10 @@ var paths = {
 	images: {
 		input: 'src/images/*',
 		output: 'dist/images/'
+	},
+	webp: {
+		input: 'src/webp/*',
+		output: 'dist/webp/'
 	},
 	copy: {
 		input: 'src/copy/**/*',
@@ -92,9 +97,11 @@ var minify = require('cssnano');
 var svgmin = require('gulp-svgmin');
 
 // Images
+var imagemin = require('gulp-imagemin');
 var mozjpeg = require('imagemin-mozjpeg')
 var pngquant = require('imagemin-pngquant');
-var imagemin = require('gulp-imagemin');
+// webp
+var webp = require("imagemin-webp");
 
 // BrowserSync
 var browserSync = require('browser-sync');
@@ -248,7 +255,21 @@ var buildImages = function (done) {
 			mozjpeg({ quality: 50 })
 		]))
 		.pipe(dest(paths.images.output));
+};
 
+// Convert images to WebP files
+var buildWebp = function (done) {
+
+	// Make sure this feature is activated before running
+	if (!settings.webp) return done();
+
+	// Convert image files and change extension to .webp
+	return src(paths.webp.input)
+		.pipe(imagemin([
+			webp({ quality: 75 })
+		]))
+		.pipe(rename, { extname: '.webp' })
+		.pipe(dest(paths.webp.output));
 };
 
 // Copy static files into output folder
@@ -309,6 +330,7 @@ exports.default = series(
 		buildStyles,
 		buildSVGs,
 		buildImages,
+		buildWebp,
 		copyFiles
 	)
 );

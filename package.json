@@ -44,6 +44,7 @@
 		"browser-sync": "2.26.7",
 		"imagemin-mozjpeg": "8.0.0",
 		"imagemin-pngquant": "8.0.0",
-		"gulp-imagemin": "7.1.0"
+		"gulp-imagemin": "7.1.0",
+		"imagemin-webp": "6.0.0"
 	}
 }
