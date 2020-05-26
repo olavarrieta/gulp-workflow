@@ -6,8 +6,9 @@ A workflow for building web projects with [Gulp](https://gulpjs.com/). Uses Gulp
 
 - Concatenate, minify, and lint JavaScript.
 - Compile, minify, autoprefix, and lint Sass.
-- Optimize SVGs.
-- Compress and optimize JPEG and PNG image files.
+- Optimize `SVGs`.
+- Compress and optimize `JPEG` and `PNG` image files.
+- Convert and optimize `JPEG` and `PNG` images to `WebP` files.
 - Copy static files and folders into your `dist` directory.
 - Automatically add headers and project details to JS and CSS files.
 - Create polyfilled and non-polyfilled versions of JS files.
@@ -99,6 +100,12 @@ Place images files in the `src/images` directory.
 
 Image files will be compressed and optimized with [imagemin-mozjpeg](https://www.npmjs.com/package/imagemin-mozjpeg) for JPEGs or [imagemin-pngquant](https://www.npmjs.com/package/imagemin-pngquant) for PNGs and compiled into `dist/images`.
 
+### WebP
+
+Place images files in the `src/webp` directory.
+
+Image files will be converted and optimized with [imagemin-webp](https://www.npmjs.com/package/imagemin-webp) and compiled into `dist/webp`.
+
 ### Copy Files
 
 Files and folders placed in the `src/copy` directory will be copied as-is into `dist`.
@@ -128,6 +135,7 @@ var settings = {
 	styles: true,
 	svgs: true,
 	images: true,
+	webp: true,
 	copy: true,
 	reload: true,
 };
@@ -162,6 +170,10 @@ var paths = {
 	images: {
 		input: 'src/images/*',
 		output: 'dist/images/',
+	},
+	webp: {
+		input: 'src/webp/*',
+		output: 'dist/webp/',
 	},
 	copy: {
 		input: 'src/copy/*',
